@@ -4,7 +4,7 @@
  
 The files in this repository were used to configure the network depicted below.
  
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+Diagrams/Network_topology_with_ELK.png
  
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the .yml file may be used to install only certain pieces of it, such as Filebeat.
  
@@ -25,17 +25,20 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
  
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? Availability
+
+What aspect of security do load balancers protect? Availability
+
 What is the advantage of a jump box? Used as a SAW (Secured Admin Station) and provides an extra layer of security for running administrative tasks. 
  
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system traffic.
-- What does Filebeat watch for? Log files/events/location and forwards to Elasticsearch or Logstash 
-- What does Metricbeat record? Data(statistical and metric) from operating system and other services that are running on the server. 
+- What does Filebeat watch for? 
+Log files/events/location and forwards to Elasticsearch or Logstash 
+- What does Metricbeat record? 
+Data(statistical and metric) from operating system and other services that are running on the server. 
  
  
  
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
  
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -76,7 +79,7 @@ The playbook implements the following tasks:
  
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
  
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+Diagrams/docker_ps_output.png)
  
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -108,7 +111,7 @@ Also, within the hosts file in ansible, add a new group called ELK and add the p
 - In order to check that the ELK server is running?
 Go to this URL http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana
  
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+Provide the specific commands the user will need to run to download the playbook, update the files, etc.
 ssh azdmin@JumpBox(PublicIP)
 sudo docker container list -a to find your ansible container.
 sudo docker start container (name of the container: “gallant_jackson”)
