@@ -119,7 +119,7 @@ ansible-playbook install_elk.yml (configures and starts the Elk container on the
 cd /etc/ansible/filebeat/
 ansible-playbook filebeat-playbook.yml (installs Filebeat on webservers)
 ansible-playbook metricbeat-playbook.yml (installs metricbeat)
-open a new web browser (Elk-Server PublicIP:5601) This will bring up the Kibana Web Page. Ensure that Kibana is receiving logs from both Web1 and Web2. Verify filebeat and metricbeat are installed properly. If they are you should see these: 
+open a new web browser (Elk-Server PublicIP:5601) This will bring up the Kibana Web Page. Go to the dashboard and ensure that Kibana is receiving logs from both Web1 and Web2. Verify filebeat and metricbeat are installed properly. If they are you should see these: 
 
 Diagrams/filebeat_confirmation.png
 Diagrams/metricbeat_confirmation.png
