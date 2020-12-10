@@ -80,7 +80,7 @@ The playbook implements the following tasks on the elk VM:
  
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
  
-Diagrams/docker_ps_output.png
+![](Diagrams/docker_ps_output.png)
  
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -101,11 +101,11 @@ SSH into the control node and follow the steps below:
 - Update the configuration file to include Private IP of the ELK VM on lines 1106 and 1806.
 - Run the playbook, and navigate (ssh) to the ELK server to check that the installation worked as expected. On Kibana dashboard click "add log data", select DEB tab, scroll down and verify filebeat is running like in the image below: 
 
-Diagrams/filebeat_confirmation.png
+![](Diagrams/filebeat_confirmation.png)
 
 - Similarly for metricbeat, "add metric data", slelect DEB tab, scroll down and click check data. See image below:
 
-Diagrams/metricbeat_confirmation.png
+![](Diagrams/metricbeat_confirmation.png)
  
 - The playbook file is filebeat-playbook.yml which can be found at /etc/ansible/filebeat/ 
  
@@ -114,7 +114,7 @@ Diagrams/metricbeat_confirmation.png
  
 Within the hosts file in the ansible directory, verify the IPs under the elk and webserver groups. The host line in the playbook is where we specify which machines to run it on. So in the filebeat scenario, "webservers" was the host versus the elk server instance where the hosts was "elk".
  
-- Go to this URL http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana to check that the ELK server is running.
+- Go to this URL ![](http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana) to check that the ELK server is running.
  
 These commands might be helpful to run to download the playbook, update the files, etc.
 
