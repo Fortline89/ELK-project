@@ -1,6 +1,6 @@
 #ELK-project 
  
-The files in this repository were used to configure the network depicted below.
+The files in this repository can be used to configure the network depicted below.
  
  ![](Diagrams/Network_topology_with_ELK.png)
 
