@@ -71,9 +71,9 @@ This elk playbook will download, install, configure Elk-server2 to map ports [56
 
 - Ensure your Inbound Security Rules allow Ports: 5601 and 9200. You should also allow access from your Personal Network to "Elk-server2"
 
-![](Diagrams/security group 1 rules.png)
+![](Diagrams/sec_g1.png)
 
-![](Diagrams/security group 2 rules.png)
+![](Diagrams/sec_g2.png)
 
 The playbook implements the following tasks on the elk VM:
 - Install docker.io
