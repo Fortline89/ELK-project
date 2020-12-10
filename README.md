@@ -40,7 +40,7 @@ The configuration details of each machine may be found below.
 | Jump Box | Ansible  | 10.0.0.4   |Linux(Ubuntu 18.04)|
 | Web1     |Docker-DVWA| 10.0.0.7  |Linux(Ubuntu 18.04)|
 | Web2     |Docker-DVWA| 10.0.0.8  |Linux(Ubuntu 18.04)|
-|Elk-server2| ELK      | 10.1.0.6  |Linux(Ubuntu 18.04)|
+|Elk-server2|Docker-ELK| 10.1.0.6  |Linux(Ubuntu 18.04)|
  
 ### Access Policies
  
@@ -55,26 +55,28 @@ A summary of the access policies in place can be found in the table below.
  
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | No                  | Personal IP only     |
+| Jump Box | Yes & No            | Personal IP only     |
 |  Web1    | No                  | 10.0.0.4             |
-|  Web2    | No                  | 10.0.0.4             |
+|  Web2    |  No                 | 10.0.0.4             |
 |Elk-server2| No                 |10.0.0.4 & Personal IP|
  
 
 ### Elk Configuration
  
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it makes the installation easy and saves us a lot of time especially when the VMs to be configured are many. With a single line of command, we can use Ansible to configure several machines at once.  
- 
- Before running the playbook, ensure:
- - The hosts file has two added groups with their specified IPs, thus;
- webservers (10.0.0.7 & 10.0.0.8) and elk (10.1.0.6)
-The playbook implements the following tasks on the elk server:
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it makes the installation easy and saves us a lot of time especially when the VMs to be configured are many. With a single line of command, we can use Ansible to configure several machines at once. 
+
+This elk playbook will download, install, configure Elk-server2 to map ports [560,9200,5044], and start the container. Before running the playbook, ensure:
+
+- The /etc/ansible/hosts file has [elk] added to groups and its IP (10.1.0.6) specified under it.
+- A new Inbound Security Rule to allow Ports: 5601 and 9200. You should also allow access from your Personal Network to "Elk-server2".
+
+
+The playbook implements the following tasks on the elk VM:
 - Install docker.io
 - Install python3-pip
 - Install docker module
 - Increase virtual memory to 262144
 - Download and launch docker elk container
-
  
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
  
@@ -97,7 +99,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml file to /etc/ansible/filebeat/ directory.
 - Update the configuration file to include Private IP of the ELK VM on lines 1106 and 1806.
-- Run the playbook, and navigate (ssh) to the ELK server to check that the installation worked as expected. (docker ps)
+- Run the playbook, and navigate (ssh) to the ELK server to check that the installation worked as expected. On Kibana dashboard click "add log data", select DEB tab, scroll down and verify filebeat is running like in the image below: 
+
+Diagrams/filebeat_confirmation.png
+
+- Similarly for metricbeat, "add metric data", slelect DEB tab, scroll down and click check data. See image below:
+
+Diagrams/metricbeat_confirmation.png
  
 - The playbook file is filebeat-playbook.yml which can be found at /etc/ansible/filebeat/ 
  
@@ -119,10 +127,5 @@ ansible-playbook install_elk.yml (configures and starts the Elk container on the
 cd /etc/ansible/filebeat/
 ansible-playbook filebeat-playbook.yml (installs Filebeat on webservers)
 ansible-playbook metricbeat-playbook.yml (installs metricbeat)
-open a new web browser (Elk-Server PublicIP:5601) This will bring up the Kibana Web Page. Go to the dashboard and ensure that Kibana is receiving logs from both Web1 and Web2. Verify filebeat and metricbeat are installed properly. If they are you should see these: 
-
-Diagrams/filebeat_confirmation.png
-Diagrams/metricbeat_confirmation.png
- 
 
 
