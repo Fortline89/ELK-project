@@ -114,7 +114,9 @@ SSH into the control node and follow the steps below:
  
 Within the hosts file in the ansible directory, verify the IPs under the elk and webserver groups. The host line in the playbook is where we specify which machines to run it on. So in the filebeat scenario, "webservers" was the host versus the elk server instance where the hosts was "elk".
  
-- Go to this URL ![](http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana) to check that the ELK server is running.
+- Go to this URL "http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana)" to check that the ELK server is running.
+
+![](Diagrams/Kibana_dashboard.png)
  
 These commands might be helpful to run to download the playbook, update the files, etc.
 
