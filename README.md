@@ -66,8 +66,11 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 This elk playbook will download, install, configure Elk-server2 to map ports [5600,9200,5044], and start the container. Before running the playbook, ensure:
 
 - The /etc/ansible/hosts file has [elk] added to groups and its IP (10.1.0.6) specified under it.
-- A new Inbound Security Rule to allow Ports: 5601 and 9200. You should also allow access from your Personal Network to "Elk-server2".
+![](Diagrams/hosts_elk.png)
 
+- A new Inbound Security Rule to allow Ports: 5601 and 9200. You should also allow access from your Personal Network to "Elk-server2".
+![](Diagrams/security group 1 rules)
+![](Diagrams/security group 2 rules)
 
 The playbook implements the following tasks on the elk VM:
 - Install docker.io
