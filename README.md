@@ -1,4 +1,4 @@
- ## ELK-STACK DEPLOYMENT
+ ### ELK-STACK DEPLOYMENT
  
  The files in this repository can be used to configure the Virtual Resource Group depicted below.
  
@@ -123,7 +123,7 @@ SSH into the control node and follow the steps below:
  
 Within the hosts file in the ansible directory, verify the IPs under the elk and webserver groups. The host line in the playbook is where we specify which machines to run it on. So in the filebeat scenario, "webservers" was the host versus the elk server instance where the hosts was "elk".
  
-- Go to this URL "http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana)" to check that the ELK server is running. Verify that elk is receiving logs from both Web1 and Web2 like this:
+- Go to this URL [http://[ELK-VM-PUBLIC-IP]:5601/app/Kibana)] to check that the ELK server is running. Verify that elk is receiving logs from both Web1 and Web2 like this:
 
 ![](Diagrams/Kibana_dashboard.png)
  
@@ -147,5 +147,6 @@ ansible-playbook filebeat-playbook.yml (installs Filebeat on webservers)
 
 ansible-playbook metricbeat-playbook.yml (installs metricbeat)
 
+```
 
 
