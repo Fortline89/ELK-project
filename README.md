@@ -40,7 +40,7 @@ The configuration details of each machine may be found below.
 | Jump Box | Ansible  | 10.0.0.4   |Linux(Ubuntu 18.04)|
 | Web1     |Docker-DVWA| 10.0.0.7  |Linux(Ubuntu 18.04)|
 | Web2     |Docker-DVWA| 10.0.0.8  |Linux(Ubuntu 18.04)|
-|Elk-server2|Docker-ELK| 10.1.0.6  |Linux(Ubuntu 18.04)|
+|Elk-server|Docker-ELK| 10.1.0.6  |Linux(Ubuntu 18.04)|
  
 ### Access Policies
  
@@ -57,15 +57,15 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|
 | Jump Box | Yes & No            | Personal IP only     |
 |  Web1    | No                  | 10.0.0.4             |
-|  Web2    |  No                 | 10.0.0.4             |
-|Elk-server2| No                 |10.0.0.4 & Personal IP|
+|  Web2    | No                  | 10.0.0.4             |
+|Elk-server| Yes & No            |10.0.0.4 & Personal IP|
  
 
 ### Elk Configuration
  
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it makes the installation easy and saves us a lot of time especially when the VMs to be configured are many. With a single line of command, we can use Ansible to configure several machines at once. 
 
-This elk playbook will download, install, configure Elk-server2 to map ports [5600,9200,5044], and start the container. Before running the playbook, ensure:
+This elk playbook will download, install, configure Elk-server to map ports [5600,9200,5044], and start the container. Before running the playbook, ensure:
 
 - The /etc/ansible/hosts file has [elk] added to groups and its IP (10.1.0.6) specified under it.
 
