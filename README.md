@@ -129,6 +129,7 @@ Within the hosts file in the ansible directory, verify the IPs under the elk and
  
 These commands might be helpful to run to download the playbook, update the files, etc
 
+```
 ssh azdmin@JumpBox(PublicIP)
 
 sudo docker container list -a to find your ansible container
@@ -146,7 +147,6 @@ cd /etc/ansible/filebeat/
 ansible-playbook filebeat-playbook.yml (installs Filebeat on webservers)
 
 ansible-playbook metricbeat-playbook.yml (installs metricbeat)
-
 ```
 
 
